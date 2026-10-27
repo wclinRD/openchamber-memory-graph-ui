@@ -4,7 +4,7 @@ import type { MemoryItem, PromptItem } from "./types";
 export function formatDate(value: string, locale: string): string {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleString(locale === "zh" ? "zh-CN" : "en-US", {
+  return date.toLocaleString(locale === "zh" ? "zh-TW" : "en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
