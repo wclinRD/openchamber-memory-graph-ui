@@ -10,6 +10,8 @@ user profile.
   (OpenChamber → *Extension pages*) as the primary graph workspace.
 - **Local only**: everything talks to `http://127.0.0.1:4747` through an
   authenticated bundled local service. No accounts, no telemetry, no CDN assets.
+- **i18n**: English and Traditional Chinese (`zh-TW`) — the locale is resolved
+  from OpenChamber's session language automatically.
 
 ## Works with opencode-mem
 
@@ -52,6 +54,13 @@ bun run check   # bun test && tsc --noEmit && build panel + service
 Built artifacts (`panel/main.js`, `service/main.js`) are committed, so a Git or
 folder install runs without any build step. Rebuild them after editing
 TypeScript sources.
+
+## Internationalization
+
+UI copy lives in `panel/i18n.ts` (`en` and `zh`). The panel resolves its locale
+from OpenChamber's session language: any `zh-*` variant maps to `zh`, everything
+else falls back to `en`. All text — navigation, buttons, tooltips, error copies
+and status messages — is translated; hardcoded strings are avoided in the panel.
 
 ## Architecture
 
